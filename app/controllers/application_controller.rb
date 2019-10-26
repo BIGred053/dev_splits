@@ -2,19 +2,25 @@
 
 class ApplicationController < ActionController::Base
   before_action :event_preprocessing, only: [:event_handler]
+  skip_before_action :verify_authenticity_token, only: [:event_handler]
 
   def home; end
 
-  def event_handler; end
+  def event_handler
+    case request.env['HTTP_X_GITHUB_EVENT']
+    when 'contents'
+      Rails.logger.debug('new branch!') if @payload['action'] == 'create'
+    end
+  end
 
   private
 
   def event_preprocessing
     get_payload_request(request)
     verify_webhook_signature
-    API::GitHubClient.app_client
+    API::GithubClient.app_client
     # Authenticate the app installation in order to run API operations
-    API::GitHubClient.installation_client(@payload)
+    API::GithubClient.installation_client(@payload)
   end
 
   # Saves the raw payload and converts the payload to JSON format

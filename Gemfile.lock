@@ -77,6 +77,7 @@ GEM
     jaro_winkler (1.5.3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jwt (2.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -100,6 +101,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
+    openssl (2.1.2)
     parallel (1.18.0)
     parser (2.6.5.0)
       ast (~> 2.4.0)
@@ -223,8 +225,10 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   jbuilder (~> 2.5)
+  jwt
   listen (>= 3.0.5, < 3.2)
   octokit (~> 4.0)
+  openssl
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.3)
