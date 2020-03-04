@@ -12,7 +12,7 @@ gem 'jwt'
 gem 'octokit', "~> 4.0"
 gem 'openssl'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 5.2.3'
 gem 'rubocop-rails'
 gem 'sass-rails', '~> 5.0'
